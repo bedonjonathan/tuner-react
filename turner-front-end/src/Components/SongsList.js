@@ -11,8 +11,8 @@ export default function SongsList() {
   const fetchSongs = async () => {
     try {
       const res = await axios.get(`${API}/songs`);
-      debugger
-    //   setSongs(res.data.payload);
+      // debugger
+      //   setSongs(res.data.payload);
       setSongs(res.data);
     } catch (error) {
       console.log(error);
@@ -29,13 +29,15 @@ export default function SongsList() {
         <table>
           <thead>
             <tr>
-              <th></th>
+              <th>Is Favorite</th>
               <th>Song</th>
-              <th>Go To Song</th>
+              <th>Artist</th>
+              <th>Time</th>
             </tr>
           </thead>
           <tbody>
             {songs.map((song) => {
+              // debugger
               return <SongListItem key={song.id} song={song} />;
             })}
           </tbody>
